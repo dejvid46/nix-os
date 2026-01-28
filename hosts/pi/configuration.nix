@@ -13,7 +13,6 @@
 
   mySecretList = [ 
     "userPassword"
-    "piholePassword" 
   ];
 in {
 
@@ -22,6 +21,7 @@ in {
     ../../modules/nixos/docker.nix
     ../../modules/nixos/wireguard.nix
     ../../modules/nixos/samba.nix
+    ../../modules/nixos/kubernetes.nix
   ];
 
   networking.hostName = hostname;
