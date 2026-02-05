@@ -42,6 +42,12 @@ After that create secret with agenix:
 nix run github:ryantm/agenix -- -e secret1.age
 ```
 
+Or if you have agenix allready installed
+
+```
+agenix -e secret1.age
+```
+
 Use this secret in configuration:
 
 ```nix

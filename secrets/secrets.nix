@@ -8,4 +8,5 @@ in
   "piholePassword.age".publicKeys = [ desktop nixos ];
   "wg-private.age".publicKeys = [ desktop nixos ];
   "wg-psk.age".publicKeys = [ desktop nixos ];
+  "baserowPassword.age".publicKeys = [desktop nixos];
 }
