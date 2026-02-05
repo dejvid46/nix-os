@@ -15,4 +15,10 @@
     serverAddr = "https://192.168.88.253:6443";
     tokenFile = "/var/lib/rancher/k3s/server-token";
   };
+
+  boot.supportedFilesystems = [ "nfs" ];
+  
+  environment.systemPackages = with pkgs; [
+    nfs-utils
+  ];
 }
