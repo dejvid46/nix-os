@@ -22,6 +22,7 @@ in {
     ../../modules/nixos/docker.nix
     ../../modules/nixos/wireguard.nix
     ../../modules/nixos/samba.nix
+    ../../modules/nixos/baserow.nix
   ];
 
   networking.hostName = hostname;
