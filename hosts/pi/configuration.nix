@@ -56,14 +56,10 @@ in {
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [ 
-      80 443 53 445 139  # Your existing ports
-      2377               # Docker Swarm: Cluster Management
-      7946               # Docker Swarm: Node Communication
+      80 443 53 445 139 8080
     ];
     allowedUDPPorts = [ 
-      53 137 138         # Your existing ports
-      7946               # Docker Swarm: Node Communication
-      4789               # Docker Swarm: Overlay Network Traffic (Critical for rabbitmq connection)
+      53 137 138 8080
     ];
     
     # CRITICAL: Docker Swarm overlay networks (vxlan) often fail on NixOS 
