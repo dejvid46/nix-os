@@ -15,7 +15,7 @@ in {
     ];
     environmentFiles = [ "/run/baserow-env-generated" ];
     environment = {
-      BASEROW_PUBLIC_URL = "http://localhost:8080";
+      BASEROW_PUBLIC_URL = "http://192.168.88.35:8080";
       
     };
     volumes = [
