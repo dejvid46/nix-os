@@ -2,12 +2,6 @@
 let
   config-volume = "/home/docker/baserow/";
 in {
-  systemd.tmpfiles.rules = [
-    "d ${config-volume} 0755 9999 9999 -"
-    "Z ${config-volume} 0755 9999 9999 -"
-  ];
-
-  users.groups.baserow.gid = 9999;
   users.users.dejvid.extraGroups = [ "baserow" ];
 
   age.secrets.baserowPassword.file = ../../secrets/baserowPassword.age;
@@ -23,8 +17,6 @@ in {
     environment = {
       BASEROW_PUBLIC_URL = "http://localhost:8080";
       
-      UID = "9999";
-      GID = "9999";
     };
     volumes = [
       "${config-volume}:/baserow/data"
