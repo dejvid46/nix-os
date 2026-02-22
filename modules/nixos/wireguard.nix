@@ -36,7 +36,7 @@
           presharedKeyFile = config.age.secrets.wgPsk.path;
           allowedIPs = [ "10.13.13.0/29" ];
           endpoint = "185.223.31.38:51820";
-          persistentKeepalive = 25;
+          persistentKeepalive = 15;
         }
       ];
     };

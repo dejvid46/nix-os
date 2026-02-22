@@ -6,7 +6,6 @@
     enable = true;
     openFirewall = true;
 
-    # Global Samba settings
     settings = {
       global = {
         "workgroup" = "WORKGROUP";
@@ -14,11 +13,18 @@
         "netbios name" = "smbnix";
         "security" = "user";
         #"use sendfile" = "yes";
-        #"max protocol" = "smb2";
-        # note: localhost is the ipv6 localhost ::1
         "hosts allow" = "0.0.0.0/0";
         "guest account" = "nobody";
         "map to guest" = "bad user";
+
+        "min receivefile size" = "16384";
+        "use sendfile" = "yes";
+        "aio read size" = "16384";
+        "aio write size" = "16384";
+        
+        "socket options" = "TCP_NODELAY IPTOS_LOWDELAY SO_RCVBUF=131072 SO_SNDBUF=131072";
+        
+        "server min protocol" = "SMB3";
       };
 
       # "public" = {
@@ -52,6 +58,11 @@
 
   networking.firewall.enable = true;
   networking.firewall.allowPing = true;
+
+  boot.kernel.sysctl = {
+    "net.core.default_qdisc" = "fq";
+    "net.ipv4.tcp_congestion_control" = "bbr";
+  };
 
   systemd.tmpfiles.rules = [
     # Create the directory with correct ownership and permissions at boot
