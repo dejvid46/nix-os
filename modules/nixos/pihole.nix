@@ -1,6 +1,11 @@
 { config, pkgs, lib, ... }:
 let 
   config-volume = "/home/docker/pihole/";
+
+  customDns = pkgs.writeText "99-moje-domeny.conf" ''
+    address=/nextcloud.dejvid.pi/192.168.88.35
+    address=/pihole.dejvid.pi/192.168.88.35
+  '';
 in {
   systemd.tmpfiles.rules = [
     "d ${config-volume} 0755 999 999 -"
@@ -19,8 +24,7 @@ in {
     ports = [
       "53:53/tcp"
       "53:53/udp"
-      "80:80/tcp"
-      "443:443/tcp"
+      "8081:80/tcp"
     ];
     environmentFiles = [ "/run/pihole-env-generated" ];
     environment = {
@@ -30,6 +34,7 @@ in {
     };
     volumes = [
       "${config-volume}:/etc/pihole"
+      "${customDns}:/etc/dnsmasq.d/99-moje-domeny.conf"
       # "/var/lib/pihole/etc-dnsmasq:/etc/dnsmasq.d"
     ];
     extraOptions = [

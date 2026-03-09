@@ -9,4 +9,5 @@ in
   "wg-private.age".publicKeys = [ desktop nixos ];
   "wg-psk.age".publicKeys = [ desktop nixos ];
   "baserowPassword.age".publicKeys = [desktop nixos];
+  "nextcloudPassword.age".publicKeys = [desktop nixos];
 }
