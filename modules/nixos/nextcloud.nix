@@ -5,12 +5,13 @@
   };
 
   services.nextcloud = {
-    enable = true; 
-    
-    hostName = "nextcloud.dejvid.pi"; 
-    
-    https = false; 
-    
+    enable = true;
+    package = pkgs.nextcloud31; 
+
+    hostName = "nextcloud.dejvid.pi";
+
+    https = false;
+
     database.createLocally = true;
     configureRedis = true;
 
