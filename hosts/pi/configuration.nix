@@ -21,8 +21,8 @@ in {
     ./hardware-configuration.nix
     ../../modules/nixos/docker.nix
     ../../modules/nixos/wireguard.nix
-    ../../modules/nixos/samba.nix
-    ../../modules/nixos/baserow.nix
+    ../../modules/nixos/nextcloud.nix
+    # ../../modules/nixos/samba.nix
   ];
 
   networking.hostName = hostname;
@@ -56,10 +56,10 @@ in {
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [ 
-      80 443 53 445 139 8080
+      53 445 139
     ];
     allowedUDPPorts = [ 
-      53 137 138 8080
+      53 137 138
     ];
     
     # CRITICAL: Docker Swarm overlay networks (vxlan) often fail on NixOS 
