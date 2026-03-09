@@ -9,6 +9,5 @@
 
   imports = [
     ./pihole.nix
-    ./baserow.nix
   ];
 }

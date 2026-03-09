@@ -8,10 +8,13 @@
   services.nomad = {
     enable = true;
     # Na RPi potřebujeme jen klientskou část
+
+    package = pkgs.nomad;
+
     settings = {
       client = {
         enabled = true;
-        servers = ["192.168.1.10"]; # <--- IP TVÉHO DESKTOPU
+        servers = ["192.168.88.253"]; # <--- IP TVÉHO DESKTOPU
         
         # Musíme namapovat NFS, aby Nomad viděl data
         # POZOR: Na RPi musíš NFS nejprve namountovat do systému!
@@ -27,11 +30,11 @@
   
   # Mountování NFS na RPi (aby to Nomad viděl jako lokální složku)
   fileSystems."/mnt/nfs/uploads" = {
-    device = "192.168.1.10:/srv/nfs/uploads";
+    device = "192.168.88.253:/srv/nfs/uploads";
     fsType = "nfs";
   };
   fileSystems."/mnt/nfs/converted" = {
-    device = "192.168.1.10:/srv/nfs/converted";
+    device = "192.168.88.253:/srv/nfs/converted";
     fsType = "nfs";
   };
 }

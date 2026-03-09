@@ -22,6 +22,10 @@
         nixos-hardware.nixosModules.raspberry-pi-4
         agenix.nixosModules.default
         # inputs.home-manager.nixosModules.default
+
+        {
+          nixpkgs.config.allowUnfree = true;
+        }
       ];
     };
   };
