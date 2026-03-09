@@ -5,9 +5,7 @@
   };
 
   services.nextcloud = {
-    enable = true;
-    
-    package = pkgs.nextcloud30; 
+    enable = true; 
     
     hostName = "nextcloud.dejvid.pi"; 
     
