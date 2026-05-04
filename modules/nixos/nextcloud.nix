@@ -1,7 +1,11 @@
 { config, pkgs, ... }: {
 
-  age.secrets.nextcloudAdminPass = {
+  age.secrets.nextcloudPassword = {
     file = ../../secrets/nextcloudPassword.age;
+
+    mode = "0400";
+    owner = "nextcloud";
+    group = "nextcloud";
   };
 
   services.nextcloud = {
@@ -9,15 +13,13 @@
     package = pkgs.nextcloud31; 
 
     hostName = "nextcloud.dejvid.pi";
-
     https = false;
 
     database.createLocally = true;
     configureRedis = true;
-
     maxUploadSize = "16G";
 
-    home = "/mnt/nas/data";
+    datadir = "/var/lib/nextcloud/data";
 
     config = {
       adminuser = "admin";
@@ -27,10 +29,11 @@
 
     settings = {
       trusted_domains = [ "nextcloud.dejvid.pi" "10.13.13.5" "192.168.88.35" ];
-      
       default_phone_region = "CZ";
-      
-      "opcache.interned_strings_buffer" = 16;
+    };
+
+    phpOptions = {
+      "opcache.interned_strings_buffer" = "16";
     };
   };
 }

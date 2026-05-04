@@ -22,6 +22,8 @@ in {
     ../../modules/nixos/docker.nix
     ../../modules/nixos/wireguard.nix
     ../../modules/nixos/nextcloud.nix
+    ../../modules/nixos/nginx.nix
+    ../../modules/nixos/adguard.nix
     # ../../modules/nixos/samba.nix
   ];
 
@@ -40,6 +42,7 @@ in {
     tmux
     git
 
+    (pkgs.callPackage ../../scripts/wol.nix {})
     inputs.agenix.packages.${pkgs.system}.default
   ];
 
@@ -56,10 +59,10 @@ in {
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [ 
-      53 445 139
+      445 139
     ];
     allowedUDPPorts = [ 
-      53 137 138
+      137 138
     ];
     
     # CRITICAL: Docker Swarm overlay networks (vxlan) often fail on NixOS 

@@ -8,7 +8,7 @@
   virtualisation.oci-containers.backend = "docker";
 
   imports = [
-    ./pihole.nix
+    # ./pihole.nix
     # ./baserow.nix
   ];
 }
