@@ -10,4 +10,6 @@ in
   "wg-psk.age".publicKeys = [ desktop nixos ];
   "baserowPassword.age".publicKeys = [desktop nixos];
   "nextcloudPassword.age".publicKeys = [desktop nixos];
+  "stepcaPassword.age".publicKeys = [desktop nixos];
+  "stepcaIntermediatePassword.age".publicKeys = [desktop nixos];
 }

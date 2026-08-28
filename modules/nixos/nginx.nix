@@ -5,6 +5,9 @@
     enable = true;
    
     virtualHosts."adguard.dejvid.pi" = {
+      forceSSL = true;
+      enableACME = true;
+
       locations."/" = {
         proxyPass = "http://127.0.0.1:8081"; 
         
@@ -17,5 +20,12 @@
     };
   };
 
-  networking.firewall.allowedTCPPorts = [ 80 ]; 
+  networking.hosts = {
+    "127.0.0.1" = [ 
+      "nextcloud.dejvid.pi" 
+      "adguard.dejvid.pi" 
+    ];
+  };
+
+  networking.firewall.allowedTCPPorts = [ 80 443 ]; 
 }

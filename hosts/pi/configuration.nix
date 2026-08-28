@@ -24,6 +24,7 @@ in {
     ../../modules/nixos/nextcloud.nix
     ../../modules/nixos/nginx.nix
     ../../modules/nixos/adguard.nix
+    ../../modules/nixos/ssl/step-ca.nix
     # ../../modules/nixos/samba.nix
   ];
 

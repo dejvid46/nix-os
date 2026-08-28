@@ -13,7 +13,7 @@
     package = pkgs.nextcloud31; 
 
     hostName = "nextcloud.dejvid.pi";
-    https = false;
+    https = true;
 
     database.createLocally = true;
     configureRedis = true;
@@ -35,5 +35,10 @@
     phpOptions = {
       "opcache.interned_strings_buffer" = "16";
     };
+  };
+
+  services.nginx.virtualHosts."nextcloud.dejvid.pi" = {
+    forceSSL = true;
+    enableACME = true;
   };
 }

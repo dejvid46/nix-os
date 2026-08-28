@@ -1,0 +1,49 @@
+{
+	"root": "/home/dejvid/.step/certs/root_ca.crt",
+	"federatedRoots": null,
+	"crt": "/home/dejvid/.step/certs/intermediate_ca.crt",
+	"key": "/home/dejvid/.step/secrets/intermediate_ca_key",
+	"address": "127.0.0.1:9000",
+	"insecureAddress": "",
+	"dnsNames": [
+		"127.0.0.1"
+	],
+	"logger": {
+		"format": "text"
+	},
+	"db": {
+		"type": "badgerv2",
+		"dataSource": "/home/dejvid/.step/db",
+		"badgerFileLoadingMode": ""
+	},
+	"authority": {
+		"provisioners": [
+			{
+				"type": "JWK",
+				"name": "admin",
+				"key": {
+					"use": "sig",
+					"kty": "EC",
+					"kid": "b5sGa7bz_fhMDSVmBxuG_lyZ8FDV2sf6eA7HAYMgkaE",
+					"crv": "P-256",
+					"alg": "ES256",
+					"x": "5rpwyDnKOE7HEDbmpzY9oRxf9IyE8mm7XTBnDf01Jm8",
+					"y": "Xs0o-c7cZh2uPlP9hGgT_lzltJRjULtXm2aLqzvNbNo"
+				},
+				"encryptedKey": "eyJhbGciOiJQQkVTMi1IUzI1NitBMTI4S1ciLCJjdHkiOiJqd2sranNvbiIsImVuYyI6IkEyNTZHQ00iLCJwMmMiOjYwMDAwMCwicDJzIjoiZ1ZxMURHMjh6OVFCZGdKVWEya1NlZyJ9.zbLCzk643EeB5br3O__QOu27-UbjLuzP9iu1ARFscX_i1-bPqoVyZw.C7y3GTvzDp3D6efm.bOf-jzXPYH46amDQqJSHENPdF--AKojAKLeuSFtCBkVyxbAQEhmOn57G7FiX1ATna8eF_FDiXcm0ZsdNL3q-pW4BM2zxlfQf6YxsOFeoP8cFhztH5eCf5Um7n8yiwg-9GsCGdj9ltGrtOPey0BQL2stcd5W56M-U0eRDFsyvLt6vMQh5cOLWeZxlA4W0dSGw4FfuPmu3DjghSZNQVmG3aSfDzt4C7FxxIc2gydeHMgyA0eiV-DsClqZwA7E5KgG9bnoO_1YH4aDyrtU6jNkzE3Rjp2W-rUcydLWLYWkbavtIucJDLcPrAvxWXvOj4RNjzW0iPZ7-upQpj6jdAhI.HYTL8JUfgWUURSzUDMj_VQ"
+			}
+		],
+		"template": {},
+		"backdate": "1m0s"
+	},
+	"tls": {
+		"cipherSuites": [
+			"TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256",
+			"TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"
+		],
+		"minVersion": 1.2,
+		"maxVersion": 1.3,
+		"renegotiation": false
+	},
+	"commonName": "Step Online CA"
+}
