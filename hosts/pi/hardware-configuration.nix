@@ -27,7 +27,7 @@
   fileSystems."/mnt/nas/snapshots" = {
     device = "/dev/sda";
     fsType = "btrfs";
-    options = [ "subvol=snapshots" ];
+    options = [ "subvol=data" "compress=zstd" "noatime" ];
   };
   swapDevices = [ ];
 
