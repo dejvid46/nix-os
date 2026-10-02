@@ -22,6 +22,8 @@
 
     phpOptions = {
       "memory_limit" = pkgs.lib.mkForce "512M";
+      "max_execution_time" = "3600";
+      "max_input_time" = "3600";
       "opcache.interned_strings_buffer" = "16";
       "opcache.memory_consumption" = "128";
       "opcache.max_accelerated_files" = "10000";
@@ -63,8 +65,19 @@
     options = [ "bind" ];
   };
 
+  systemd.tmpfiles.rules = [
+    "d /mnt/nas/data/nginx_temp 0750 nginx nginx"
+    "d /mnt/nas/data/nginx_client_temp 0750 nginx nginx"
+  ];
+
   services.nginx.virtualHosts."nextcloud.dejvid.pi" = {
     forceSSL = true;
     enableACME = true;
+
+    extraConfig = ''
+      fastcgi_buffering on;
+      fastcgi_temp_path /mnt/nas/data/nginx_temp;
+      client_body_temp_path /mnt/nas/data/nginx_client_temp;
+    '';
   };
 }

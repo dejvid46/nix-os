@@ -11,7 +11,6 @@
   networking.wg-quick.interfaces = {
     wg0 = {
       address = [ "10.13.13.5/32" ];
-      dns = [ "10.13.13.1" ];
       privateKeyFile = config.age.secrets.wgPrivate.path;
       mtu = 1280;
 
@@ -36,7 +35,7 @@
           presharedKeyFile = config.age.secrets.wgPsk.path;
           allowedIPs = [ "10.13.13.0/29" ];
           endpoint = "185.223.31.38:51820";
-          persistentKeepalive = 15;
+          persistentKeepalive = 25;
         }
       ];
     };
