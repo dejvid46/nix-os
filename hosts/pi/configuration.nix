@@ -27,6 +27,7 @@ in {
     ../../modules/nixos/adguard.nix
     ../../modules/nixos/ssl/step-ca.nix
     # ../../modules/nixos/samba.nix
+    ../../modules/nixos/ai-stack.nix
   ];
 
   networking.hostName = hostname;

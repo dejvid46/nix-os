@@ -12,6 +12,7 @@
         rewrites = [
           { domain = "nextcloud.dejvid.pi"; answer = "192.168.88.35"; }
           { domain = "adguard.dejvid.pi"; answer = "192.168.88.35"; }
+          { domain = "ai.dejvid.pi"; answer = "192.168.88.35"; }
         ];
       };
 

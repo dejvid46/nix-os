@@ -12,4 +12,5 @@ in
   "nextcloudPassword.age".publicKeys = [desktop nixos];
   "stepcaPassword.age".publicKeys = [desktop nixos];
   "stepcaIntermediatePassword.age".publicKeys = [desktop nixos];
+  "aiStackEnv.age".publicKeys = [ desktop nixos ];
 }
